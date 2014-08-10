@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>2048 - Hard</title>
+
+  <link href="style/main.css" rel="stylesheet" type="text/css">
+  <link href="style/ai.css" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+
+  <meta property="og:title" content="2048 game"/>
+  <meta property="og:site_name" content="2048 game"/>
+  <meta property="og:description" content="Join the numbers and get to the 2048 tile! Careful: this game is extremely addictive!"/>
+  <meta property="og:image" content="http://gabrielecirulli.github.io/2048/meta/og_image.png"/>
+</head>
+<body>
+  <div class="container">
+    <div class="heading">
+      <h1 class="title">2048 - Hard</h1>
+      <div class="score-container">0</div>
+    </div>
+    <p class="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
+    <p class="game-intro">Note: this is not the original game, but one modified so the 2s and 4s appear in the worst place possible. To play the original game go <a href="http://gabrielecirulli.github.io/2048/">here</a>.</p>
+
+    <div class='controls'>
+      <div id='hint-button-container'>
+        <button id='hint-button' class='ai-button'>Get Hint</button>
+      </div>
+      <div id='feedback-container'> </div>
+      <div id='run-button-container'>
+        <button id='run-button' class='ai-button'>Auto-run</button>
+      </div>
+    </div>
+    <div class='controls'>
+      <div id='difficulty-container' class='ai-button'>
+        <label>Difficulty:</label>
+        <select id='difficulty-selector'>
+          <option value="0">Easy</option>
+          <option value="0.25">Medium</option>
+          <option value="0.5">Hard</option>
+          <option value="1" selected>Impossible</option>
+        </select>
+        <label>Using:</label>
+        <select id='generation-selector'>
+          <option value="1">2s only</option>
+          <option value="2" selected>2s and 4s</option>
+          <option value="3">2s, 4s, 8s</option>
+          <option value="4">2s, 4s, 8s, 16s</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="game-container">
+      <div class="game-message">
+        <p></p>
+        <div class="lower">
+          <a class="retry-button">Try again</a>
+          <div class="score-sharing"></div>
+        </div>
+      </div>
+
+      <div class="grid-container">
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+      </div>
+
+      <div class="tile-container">
+
+      </div>
+    </div>
+
+    <p class="game-explanation">
+      <strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> to move the tiles. When two tiles with the same number touch, they <strong>merge into one!</strong>
+    </p>
+    <p>
+    <strong>Difficulty settings</strong>:
+    <ul>
+      <li><strong>Easy</strong>: same as original game, new tiles are generated randomly
+      <li><strong>Medium</strong>: computer will place the new tile in an annoying place 25% of the time
+      <li><strong>Hard</strong>: computer will place the new tile in an annoying place 50% of the time
+      <li><strong>Impossible</strong>: computer will always place the tile in an annoying place.
+    </ul>
+    </p>
+    <p>
+    <strong>Using</strong>: this section will determine which values can be generated on the grid by the computer. The default is to generate both <strong>2s and 4s</strong>. Switch it to <strong>2s only</strong> if you want an easier game, or increase it for fun.
+    </p>
+    <hr>
+    <p>
+    Created by <a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli.</a> Based on <a href="https://itunes.apple.com/us/app/1024!/id823499224" target="_blank">1024 by Veewo Studio</a> and conceptually similar to <a href="http://asherv.com/threes/" target="_blank">Threes by Asher Vollmer.</a>
+    </p>
+    <p>
+    AI solver by <a href="https://github.com/ov3y/2048-AI">Matt Overlan</a>
+    </p>
+    <p>
+    Hard version by <a href="https://github.com/sztupy/2048-Hard">Zsolt Sz. Sztupak</a>.
+    </p>
+    <div class="sharing">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Check out the hard version of 2048! #2048game #2048ai #2048hard" data-via="gabrielecirulli">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      <span class="btc-donate">
+        <a href="bitcoin:1Ec6onfsQmoP9kkL3zkpB6c5sA4PVcXU2i">
+          <img src="meta/icon_bitcoin.png">Donate
+        </a>
+        <span class="address"><code>1Ec6onfsQmoP9kkL3zkpB6c5sA4PVcXU2i</code></span>
+      </span>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var array = new Array();
+array[0] = 0;
+array[1] = 0;
+array[2] = 0;
+array[3] = 0;
+array[4] = 0;
+array[5] = 0;
+array[6] = 0;
+array[7] = 0;
+array[8] = 0;
+array[9] = 0;
+array[10] = 0;
+  </script>
+  <script src="js/animframe_polyfill.js"></script>
+  <script src="js/hammer.min.js"></script>
+  <script src="js/keyboard_input_manager.js"></script>
+  <script src="js/html_actuator.js"></script>
+  <script src="js/grid.js"></script>
+  <script src="js/tile.js"></script>
+  <script src="js/ai.js"></script>
+  <script src="js/game_manager.js"></script>
+  <script src="js/application.js"></script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-9404141-8', 'sztupy.github.io');
+    ga('send', 'pageview');
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+.controls {
+  margin-top: 1em;
+  padding: 0.5em;
+  overflow: auto;
+}
+
+.ai-button, #feedback-container {
+  font-size: xx-large;
+}
+
+#run-button-container {
+  float: right;
+}
+
+#difficulty-container {
+  float: left;
+}
+
+#difficulty-selector option {
+  padding: 0.2em;
+}
+
+#hint-button-container, #feedback-container {
+  float: left;
+}
+
+#feedback-container {
+  margin-left: 1em;
+  font-weight: bold;
+}
